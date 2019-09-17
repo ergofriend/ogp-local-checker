@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  ogp-local-checker-prod-prod:
+    container_name: ogp-local-checker-prod
+    build: .
+    ports:
+      - "8089:80"
+# docker-compose up -d --build
+# docker-compose ps
+# docker-compose down
