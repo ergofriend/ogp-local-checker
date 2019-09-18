@@ -1,8 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-import Twitter from "./components/twitter"
+import Twitter from "./components/twitter";
 
 const App: React.FC = () => {
   return (
@@ -24,6 +24,6 @@ const App: React.FC = () => {
       <Twitter></Twitter>
     </div>
   );
-}
+};
 
 export default App;
