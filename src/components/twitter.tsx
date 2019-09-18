@@ -10,10 +10,10 @@ const Twitter: React.FC = () => {
 };
 
 const TwitterStyle = Styled.div`
-    background-color: pink;
-    p {
-        color: blue;
-    }
+	background-color: pink;
+	p {
+		color: blue;
+	}
 `;
 
 export default Twitter;
