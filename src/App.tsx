@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Twitter from "./components/twitter"
+
 const App: React.FC = () => {
   return (
     <div className="App">
@@ -19,6 +21,7 @@ const App: React.FC = () => {
           Learn React
         </a>
       </header>
+      <Twitter></Twitter>
     </div>
   );
 }

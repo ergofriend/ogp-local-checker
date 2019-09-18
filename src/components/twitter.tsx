@@ -1,9 +1,19 @@
 import React from "react"
+import Styled from 'styled-components'
 
 const Twitter: React.FC = () => {
     return (
-        <div className="Twitter"></div>
+        <TwitterStyle>
+            <p>twitter sfc</p>
+        </TwitterStyle>
     )
 }
+
+const TwitterStyle = Styled.div`
+    background-color: pink;
+    p {
+        color: blue;
+    }
+`
 
 export default Twitter;
