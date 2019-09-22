@@ -14,7 +14,7 @@ const Twitter: React.FC = () => {
         <TitleStyle>はてなサマーインターン 皇紀2679年の夏</TitleStyle>
         <p>
           まだ蝉の声が耳に突き刺さる暑い夏の日だった。その夜僕は、インターンへの参加を決めた。
-          晴天による暑さが脳裏に焼き...
+          晴天による暑さが脳裏に焼き付いている8月19日、僕は約10年振...
         </p>
         <p>ergofriend.hatenablog.com</p>
       </ContentStyle>
