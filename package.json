@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
-    "jsdom": "^15.1.1",
+    "beautiful-dom": "^1.0.7",
     "next": "^9.0.6",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

@@ -1,15 +1,8 @@
-const util = require("util");
-const exec = util.promisify(require("child_process").exec);
+import util from "util";
+import child_process from "child_process";
+import BeautifulDom from "beautiful-dom";
 
-const jsdom = require("jsdom");
-const {JSDOM} = jsdom;
-
-async function ls() {
-  const {stdout, stderr} = await exec("ls");
-  console.log("stdout:", stdout);
-  console.log("stderr:", stderr);
-  return {stdout: stdout, stderr: stderr};
-}
+const exec = util.promisify(child_process.exec);
 
 const getHeader = async (url: string) => {
   const {stdout, stderr} = await exec("curl " + url);
@@ -17,13 +10,25 @@ const getHeader = async (url: string) => {
 };
 
 export default async (req, res) => {
-  const dom = new JSDOM(await getHeader(req.query.url));
-  const head = dom.window.document.head;
-  console.log("dom:", head.title);
-  // console.log(
-  //   "dom:",
-  //   dom.window.document.head.querySelector("[name=description][content]")
-  // );
+  const document = await getHeader(req.query.url);
+  const dom = new BeautifulDom(document.stdout);
+  const head = dom.getElementsByTagName("head")[0];
+  const metas = head.getElementsByTagName("meta");
 
-  res.status(200).json(await getHeader(req.query.url));
+  let data: any;
+
+  metas.forEach(meta => {
+    const key = meta.getAttribute("name")
+      ? meta.getAttribute("name")
+      : meta.getAttribute("property");
+    if (key) {
+      const key_string = key.replace(":", "_");
+      const content = meta.getAttribute("content");
+      data[key_string] = content;
+    }
+  });
+
+  console.log(data);
+
+  res.status(200).json(data);
 };
