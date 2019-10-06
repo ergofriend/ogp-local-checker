@@ -1,29 +1,34 @@
 import React from "react";
 import Styled from "styled-components";
 
-const Twitter: React.FC = () => {
-  const isLaerge: boolean = false;
+type props =  {
+  card: string;
+  image: string;
+  title: string;
+  description: string;
+  site: string;
+}
 
+const Twitter: React.FC<props> = props => {
   return (
     <TwitterStyle>
       <ImgStyle
-        src="https://ogimage.blog.st-hatena.com/17680117127217083877/26006613430980642/1568885719"
+        src={props.image}
         alt=""
       />
       <ContentStyle>
-        <TitleStyle>はてなサマーインターン 皇紀2679年の夏</TitleStyle>
+        <TitleStyle>{props.title}</TitleStyle>
         <p>
-          まだ蝉の声が耳に突き刺さる暑い夏の日だった。その夜僕は、インターンへの参加を決めた。
-          晴天による暑さが脳裏に焼き付いている8月19日、僕は約10年振...
+          {props.description}
         </p>
-        <p>ergofriend.hatenablog.com</p>
+        <p>{props.site}</p>
       </ContentStyle>
     </TwitterStyle>
   );
 };
 
 const TwitterStyle = Styled.div`
-  width: 600px;
+  max-width: 600px;
   border-radius: .85714em;
   border-width: 1px;
   border-style: solid;
@@ -40,6 +45,7 @@ const ImgStyle = Styled.img`
   /* padding: 1rem; */
   border-radius: 25px 25px 0 0;
   width: 100%;
+  height: 330px;
   object-fit: cover; 
 `;
 
