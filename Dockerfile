@@ -11,7 +11,7 @@ RUN yarn
 # Copy all files to the working directly, build the application
 # and purge the development dependencies
 COPY . .
-RUN yarn build && yarn --production
+RUN yarn build
 
 # Create a new image using a minimal Node.js image
 # with no extra tools packaged in, such as Yarn or npm for the smallest final size
@@ -39,4 +39,4 @@ COPY --from=build /usr/src next-env.d.ts
 CMD ["next", "start"]
 
 # docker build -t ogp-local-checker:prod .
-# docker run -it -p 8089:80 --rm ogp-local-checker:prod
+# docker run -it -p 3000:80 --rm ogp-local-checker:prod

@@ -1,5 +1,6 @@
 {
   "name": "ogp-local-checker",
+  "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "next build",
