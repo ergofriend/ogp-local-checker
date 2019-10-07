@@ -60,10 +60,7 @@ const Index: React.FC = () => {
         <Nav >
           <Nav.Item eventKey="home" icon={<Icon icon="home" />}>
             Home
-      </Nav.Item>
-          <Nav.Item eventKey="news">News</Nav.Item>
-          <Nav.Item eventKey="solutions">Solutions</Nav.Item>
-          <Nav.Item eventKey="products">Products</Nav.Item>
+          </Nav.Item>
           <Nav.Item eventKey="about">About</Nav.Item>
         </Nav>
       </header>
