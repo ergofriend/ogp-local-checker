@@ -1,0 +1,12 @@
+{
+    "rules": {
+        "indent": [
+            "error",
+            2
+        ]
+    },
+    "extends": [
+        "react-app",
+        "plugin:prettier/recommended"
+    ]
+}
