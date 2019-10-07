@@ -1,7 +1,6 @@
-const withCSS = require("@zeit/next-css");
-
-module.exports = withCSS({
-  cssLoaderOptions: {
+const withLess = require('@zeit/next-less');
+module.exports = withLess({
+  lessLoaderOptions: {
     javascriptEnabled: true
   }
 });

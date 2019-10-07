@@ -9,8 +9,9 @@
     "eslint:fix": "eslint --fix './**/*.{ts,tsx}'"
   },
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-less": "^1.0.1",
     "beautiful-dom": "^1.0.7",
+    "less": "^3.10.3",
     "next": "^9.0.6",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

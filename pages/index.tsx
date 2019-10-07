@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Styled from "styled-components";
 
-import "rsuite/dist/styles/rsuite-default.css";
+import "./index.less";
 import { Nav, Form, FormGroup, InputGroup, Input, Icon, Loader } from "rsuite";
 
 import Twitter from "../components/twitter";
