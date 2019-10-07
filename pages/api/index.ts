@@ -29,7 +29,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const title = head.getElementsByTagName("title")[0];
     if (title){
-      console.log("title", title);
       data.title = title.innerText;
     } 
     data.url = url;
