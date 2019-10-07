@@ -61,7 +61,7 @@ const Index: React.FC = () => {
           <Nav.Item eventKey="home" icon={<Icon icon="home" />}>
             Home
           </Nav.Item>
-          <Nav.Item eventKey="about">About</Nav.Item>
+          <Nav.Item eventKey="about">History</Nav.Item>
         </Nav>
       </header>
       <InputStyle>
