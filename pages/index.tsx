@@ -56,7 +56,6 @@ const Index: React.FC = () => {
 
   return (
     <div className="App">
-      <link href="/static/rsuite-default.min.css" rel="stylesheet" />
       <header className="App-header">
         <Nav >
           <Nav.Item eventKey="home" icon={<Icon icon="home" />}>

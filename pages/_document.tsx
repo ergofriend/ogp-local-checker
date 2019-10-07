@@ -5,7 +5,7 @@ export default class extends Document {
     return (
       <html lang="ja">
         <Head>
-          {/* <link href="/static/rsuite-default.min.css" rel="stylesheet" /> */}
+          <link href="/static/rsuite-default.min.css" rel="stylesheet" />
         </Head>
         <body>
           <Main />
