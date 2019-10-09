@@ -1,8 +1,11 @@
+import {ulid} from "ulid";
+
 export type HistryInput = {
   title: string;
   description: string;
   image: string;
   site: string;
+  url: string;
 };
 
 export type Histry = HistryInput & {
@@ -18,27 +21,28 @@ export default class OGPHistory {
     this.list = [];
   }
 
-  load() {
-    const data = window.localStorage.getItem("history") || "[]";
-    this.list = JSON.parse(data);
+  load(histryList: Array<Histry>) {
+    this.list = histryList;
   }
 
   add(data: HistryInput) {
     const history: Histry = {
-      ulid: "aa",
+      ulid: ulid().toString(),
       title: data.title,
       description: data.description,
       image: data.image,
-      site: data.site
+      site: data.site,
+      url: data.url
     };
     this.list.unshift(history);
-    window.localStorage.setItem("history", this.list.toString());
+    console.log(this.list)
+    window.localStorage.setItem("history", JSON.stringify(this.list));
   }
 
   del(index: number): boolean {
     if (0 <= index && index < this.list.length) {
       this.list.splice(1, index);
-      window.localStorage.setItem("history", this.list.toString());
+      window.localStorage.setItem("history", JSON.stringify(this.list));
       return true;
     }
     return false;

@@ -8,23 +8,20 @@ import { Nav, Form, FormGroup, InputGroup, Input, Icon, Loader } from "rsuite";
 import { Grid, Row, Col } from 'rsuite';
 
 import Twitter from "../components/twitter";
+import History from "../components/history";
 import is_url from "../util/is_url"
 import OGPHistory from "../util/ogp_history"
 
-const HistoryWithNoSSR = dynamic(() => import('../components/history'), {
-  ssr: false
-})
-
 const Index: React.FC = () => {
-  // const ogpHistry = new OGPHistory();
+  const ogpHistry = new OGPHistory();
   const [loading, setLoading] = useState(false);
   const [isUrl, setIsUrl] = useState(true);
-  const [url, setUrl] = useState("https://note.mu/howdy39/n/n05cf138afee2");
+  const [url, setUrl] = useState("");
   const [ogp, setOGP] = useState({
     card: "summary",
-    image: "https://tento.app/sns.png",
-    title: "Tento - 集まろう！ 学生の新しいコミュニティー",
-    description: "Tentoとは学生のみが利用する学生求人サイトです。あなたの興味のあるこや、やりたいことをみんなでシェアして取り組める!イベント開催告知から開発メンバー募集までなんでもあり！",
+    image: "https://licensecounter.jp/devops-hub/assets/images/products/logo-gitHubEnterprise680_500-1.png",
+    title: "ローカルでOGPの確認が出来ます。",
+    description: "みんなでコミットしよう！",
     site: "location.hostname"
   })
 
@@ -48,6 +45,10 @@ const Index: React.FC = () => {
     return new URL(url).hostname;
   }
 
+  const setNewUrl = (newUrl: string) => {
+    setUrl(newUrl)
+  }
+
   const getInfo = async (url: string) => {
     const response = await fetch(location.href + "api?url=" + url)
     const ogp = await response.json();
@@ -63,15 +64,6 @@ const Index: React.FC = () => {
     setLoading(false)
   }
 
-  // const ddd = () => {
-  //   ogpHistry.add({
-  //     title: ogp.title,
-  //     description: ogp.description,
-  //     image: ogp.image,
-  //     site: ogp.site
-  //   })
-  // }
-
   return (
     <div>
       <Head>
@@ -82,30 +74,31 @@ const Index: React.FC = () => {
         <header className="App-header">
           <Nav >
             <Nav.Item eventKey="home" icon={<Icon icon="home" />}>
-              Home
+              Top
             </Nav.Item>
-            <Nav.Item eventKey="about">History</Nav.Item>
+            <Nav.Item eventKey="about">About</Nav.Item>
           </Nav>
         </header>
         <InputStyle>
           <Form fluid>
             <FormGroup>
-          <InputGroup inside>
+              <InputDivStyle>
+              <InputGroup inside >
             {(() => {
               return url.length > 0 ?
-                <InputGroup.Button onClick={clearURL}>
+              <InputGroup.Button onClick={clearURL}>
                   <Icon icon="close" />
                 </InputGroup.Button>
                 : null
               }
-            )()}
+              )()}
             <Input
               name="url"
               type="url"
               size="md"
               value={url}
               onChange={value => setUrl(value)}
-            />
+              />
             {(() => {
               return loading
               ? <InputGroup.Button>
@@ -116,13 +109,14 @@ const Index: React.FC = () => {
                 </InputGroup.Button>
             })()}
               </InputGroup>
+            </InputDivStyle>
               <Grid fluid>
                 <Row className="show-grid">
-                  <Col xs={24} sm={24} md={16}>
+                  <Col xs={24} sm={24} md={13}>
                     <Twitter card={ogp.card} image={ogp.image} title={ogp.title} description={ogp.description} site={ogp.site}></Twitter>
                   </Col>
-                  <Col xs={24} sm={24} md={8}>
-                    <HistoryWithNoSSR></HistoryWithNoSSR>
+                  <Col xs={24} sm={24} md={11}>
+                    <History emitter={setNewUrl} image={ogp.image} title={ogp.title} description={ogp.description} site={ogp.site} url={url}></History>
                   </Col>
                 </Row>
               </Grid>
@@ -133,6 +127,10 @@ const Index: React.FC = () => {
     </div>
   );
 };
+
+const InputDivStyle = Styled.div`
+  margin: 0 2rem;
+`;
 
 const InputStyle = Styled.div`
   padding: 1rem 2rem;
