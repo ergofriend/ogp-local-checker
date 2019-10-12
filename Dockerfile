@@ -36,5 +36,7 @@ RUN apk add --no-cache curl
 EXPOSE 3000
 CMD ["node_modules/.bin/next", "start"]
 
-# docker build -t ogp-local-checker:prod .
-# docker run -it -p 3000:80 --rm ogp-local-checker:prod
+# docker build -t ergofriend/ogp-local-checker:prod .
+# docker tag 7d9495d03763 ergofriend/ogp-local-checker:prod
+# docker push ergofriend/ogp-local-checker:prod
+# docker run -it -p 3000:3000 --rm ergofriend/ogp-local-checker:prod
