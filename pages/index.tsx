@@ -72,6 +72,14 @@ const Index: React.FC = () => {
       <Head>
         <title key="title">OGP Local Checker</title>
         <meta name="description" content="ローカルのPCでOGPの確認が出来ますよ！"/>
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ergofriend" /> 
+        <meta property="og:url" content="https://github.com/ErgoFriend/ogp-local-checker" /> 
+        <meta property="og:title" content="OGP Local Checker" />
+        <meta property="og:description" content="Preview the your dev site from the local network." /> 
+        <meta property="og:image" content="https://github.com/ErgoFriend/ogp-local-checker/blob/master/ogp.png" />
+
       </Head>
       <div className="App">
         <header className="App-header">

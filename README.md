@@ -5,9 +5,11 @@ You can confirm the SNS OGP with the local computer.
 # Easy Run
 ```
 docker pull ergofriend/ogp-local-checker:prod
-docker run -it -p 3000:3000 --rm ergofriend/ogp-local-checker:prod
+docker run -it -p 8089:3000 --rm ergofriend/ogp-local-checker:prod
 open http://127.0.0.1:8089
 ```
+
+![cap](https://github.com/ErgoFriend/ogp-local-checker/blob/master/ogp.png)
 
 ## Tag and Brunch
 - production -> ergofriend/ogp-local-checker:prod
@@ -15,6 +17,7 @@ open http://127.0.0.1:8089
 
 # Dev
 ```
+git clone git@github.com:ErgoFriend/ogp-local-checker.git && cd ogp-local-checker
 yarn
 yran start
 ```
