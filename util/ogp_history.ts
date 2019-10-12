@@ -34,8 +34,21 @@ export default class OGPHistory {
       site: data.site,
       url: data.url
     };
+
+    // 2連続の場合は上書きする
+    if (this.list.length > 0 && history.url === this.list[0].url) {
+      this.list.shift();
+    }
+
+    // 先頭に追加
     this.list.unshift(history);
-    console.log(this.list)
+
+    // 最大10個まで
+    if (this.list.length > 10) {
+      this.list.pop();
+    }
+    
+    console.log(this.list);
     window.localStorage.setItem("history", JSON.stringify(this.list));
   }
 

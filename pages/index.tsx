@@ -9,6 +9,7 @@ import { Grid, Row, Col } from 'rsuite';
 
 import Twitter from "../components/twitter";
 import History from "../components/history";
+import Info from "../components/info";
 import is_url from "../util/is_url"
 import OGPHistory from "../util/ogp_history"
 
@@ -24,6 +25,7 @@ const Index: React.FC = () => {
     description: "みんなでコミットしよう！",
     site: "location.hostname"
   })
+  const [rawData, setRawData] = useState(ogp)
 
   useEffect(() => {
     // Update the document title using the browser API
@@ -52,6 +54,7 @@ const Index: React.FC = () => {
   const getInfo = async (url: string) => {
     const response = await fetch(location.href + "api?url=" + url)
     const ogp = await response.json();
+    setRawData(ogp)
     console.log("response:", ogp);
     const ogpData = {
       card: ogp.twitter_card,
@@ -112,14 +115,15 @@ const Index: React.FC = () => {
             </InputDivStyle>
               <Grid fluid>
                 <Row className="show-grid">
-                  <Col xs={24} sm={24} md={13}>
+                  <Col xs={24} sm={24} md={13} lg={10}>
                     <Twitter card={ogp.card} image={ogp.image} title={ogp.title} description={ogp.description} site={ogp.site}></Twitter>
                   </Col>
-                  <Col xs={24} sm={24} md={11}>
-                    <History emitter={setNewUrl} image={ogp.image} title={ogp.title} description={ogp.description} site={ogp.site} url={url}></History>
+                  <Col xs={24} sm={24} md={11} lg={14}>
+                    <Info data={rawData}/>
                   </Col>
                 </Row>
               </Grid>
+              <History emitter={setNewUrl} image={ogp.image} title={ogp.title} description={ogp.description} site={ogp.site} url={url}></History>
             </FormGroup>
           </Form>
         </InputStyle>

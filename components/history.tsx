@@ -44,7 +44,8 @@ class History extends React.Component<props> {
         {0 < this.ogpHistry.list.length && (
         <List hover>
             {this.ogpHistry.list.map((item, index) =>
-              <List.Item key={item.ulid} index={index} onClick={this.props.emitter(item.url)}>
+              // <List.Item key={item.ulid} index={index} onClick={this.props.emitter(item.url)}>
+              <List.Item key={item.ulid} index={index}>
               <FlexboxGrid>
                 {/*icon*/}
                   <FlexboxGrid.Item colspan={6} style={{
