@@ -78,7 +78,7 @@ const Index: React.FC = () => {
         <meta property="og:url" content="https://github.com/ErgoFriend/ogp-local-checker" /> 
         <meta property="og:title" content="OGP Local Checker" />
         <meta property="og:description" content="Preview the your dev site from the local network." /> 
-        <meta property="og:image" content="https://github.com/ErgoFriend/ogp-local-checker/blob/master/ogp.png" />
+        <meta property="og:image" content="https://github.com/ErgoFriend/ogp-local-checker/blob/master/static/ogp.png" />
 
       </Head>
       <div className="App">
